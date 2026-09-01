@@ -204,21 +204,21 @@ export const testimonials: Testimonial[] = [
     // "and" and "a" added to repair a spoken stumble ("is also great first step").
     quote:
       "It's been so brilliant to talk through something that's felt like such a blockage for me\u2026 and to actually do it is a great first step.",
-    name: "Jess",
+    name: "Jess O'Connor",
     company: "Firebowl",
     image: "/images/testimonials/jessica.webp",
   },
   {
     quote:
       "It's not just about the videos\u2026 you've also helped cement in my mind a bit of a plan for the whole content.",
-    name: "Phil",
+    name: "Phil Duffin",
     company: "PA Duffin",
     image: "/images/testimonials/phil.webp",
   },
   {
     quote:
       "I needed a bit of structure: what the hook was, the middle bit, and the call to action\u2026 You showed me a kind of halfway house that could work more effectively, something that I can take away and use for future videos.",
-    name: "Vaishali",
+    name: "Vaishali Shah",
     company: "Creative ID",
     image: "/images/testimonials/vaishali.webp",
   },
