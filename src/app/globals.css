@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+/* =========================================================
+   Content Pal brand system.
+   Ported from cp-client-planner/planner/src/app/globals.css and the fuller
+   design source of truth at cp-client-planner/project/assets/colors_and_type.css.
+   Nothing here is invented for this page — if a value needs to change, it should
+   change in the brand system first.
+   ========================================================= */
+
+/* Outfit — brand typeface, self-hosted variable font */
+@font-face {
+  font-family: "Outfit";
+  src: url("/Outfit-VariableFont_wght.ttf") format("truetype-variations"),
+       url("/Outfit-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Brand palette */
+  --cp-ogre-odor:      #FF4F40;
+  --cp-key-lime:       #E7FC93;
+  --cp-blizzard-blue:  #ADE6ED;
+  --cp-blueberry:      #5185E8;
+  --cp-soft-grey:      #F2F8F4;
+  --cp-black:          #000000;
+  --cp-white:          #FFFFFF;
+
+  --cp-ogre-odor-700:  #D63A2D;
+  --cp-ogre-odor-300:  #FF8478;
+  --cp-ogre-odor-100:  #FFE2DE;
+  --cp-blueberry-700:  #2F5FBF;
+  --cp-blueberry-100:  #DCE7FA;
+  --cp-key-lime-700:   #B6CE5E;
+  --cp-key-lime-100:   #F4FCD2;
+
+  /* Semantic — coloured page backgrounds are preferred, white used sparingly */
+  --bg-app:       var(--cp-key-lime);
+  --bg-app-soft:  var(--cp-key-lime-100);
+  --bg-alt:       var(--cp-blizzard-blue);
+  --bg-alt-soft:  #DAF3F6;
+  --bg-surface:   var(--cp-white);
+  --bg-mute:      var(--cp-soft-grey);
+  --bg-brand:     var(--cp-ogre-odor);
+  --bg-deep:      var(--cp-blueberry);
+  --bg-inverse:   var(--cp-black);
+
+  --fg-1:         var(--cp-black);
+  --fg-2:         #2A2A2A;
+  --fg-3:         #5C5C5C;
+  --fg-muted:     #8A8A8A;
+  --fg-on-brand:  var(--cp-white);
+  --fg-on-accent: var(--cp-black);
+  --fg-link:      var(--cp-blueberry);
+
+  --border-1:     var(--cp-black);
+  --border-2:     rgba(0, 0, 0, 0.12);
+  --border-soft:  #E2E8E4;
+
+  /* Shape */
+  --radius-xs:   6px;
+  --radius-sm:   10px;
+  --radius-md:   16px;
+  --radius-lg:   24px;
+  --radius-xl:   32px;
+  --radius-pill: 999px;
+
+  --border-w-hair:  1px;
+  --border-w-bold:  2px;
+  --border-w-thicc: 3px;
+
+  /* "Sticker" hard shadow — the brand signature, lifted from the logo */
+  --shadow-sticker-sm: 3px 3px 0 0 var(--cp-black);
+  --shadow-sticker-md: 5px 5px 0 0 var(--cp-black);
+  --shadow-sticker-lg: 8px 8px 0 0 var(--cp-black);
+
+  /* Soft elevation — used sparingly, mostly on white surfaces */
+  --shadow-soft-sm: 0 2px 6px rgba(0, 0, 0, 0.06);
+  --shadow-soft-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+  /* Spacing scale */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  --easing-bounce: cubic-bezier(.34, 1.56, .64, 1);
+  --easing-out:    cubic-bezier(.2, .8, .2, 1);
+  --dur-fast:      120ms;
+  --dur-base:      200ms;
+}
+
+/* Tailwind v4 theme tokens — so utility classes speak the brand palette too */
+@theme inline {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand:      #FF4F40;
+  --color-brand-700:  #D63A2D;
+  --color-brand-100:  #FFE2DE;
+  --color-accent:     #E7FC93;
+  --color-accent-100: #F4FCD2;
+  --color-info:       #ADE6ED;
+  --color-deep:       #5185E8;
+  --color-deep-700:   #2F5FBF;
+  --color-soft-grey:  #F2F8F4;
+}
+
+/* =========================================================
+   Base element defaults
+   ========================================================= */
+html, body {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--fg-1);
+  background: var(--bg-app);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01", "ss02";
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+* { box-sizing: border-box; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--fg-1);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+h1 { font-size: clamp(40px, 6vw, 84px); font-weight: 900; line-height: 1.02; text-transform: uppercase; letter-spacing: -0.03em; }
+h2 { font-size: clamp(26px, 2.4vw, 36px); font-weight: 700; line-height: 1.15; }
+h3 { font-size: 22px; font-weight: 700; line-height: 1.15; }
+h4 { font-size: 18px; font-weight: 600; line-height: 1.15; }
+
+p { margin: 0 0 1em; text-wrap: pretty; }
+
+a { color: var(--fg-link); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--cp-blueberry-700); }
+
+::selection { background: var(--cp-key-lime); color: var(--cp-black); }
+
+/*
+ * Visible focus everywhere. The planner's inline-styled buttons don't define one, so this is
+ * a deliberate addition for a public page that must be keyboard navigable.
+ */
+:focus-visible {
+  outline: 3px solid var(--cp-blueberry);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   Payment amount grid.
+   Lives here rather than in an inline style because it needs media queries.
+   The column counts divide six exactly (2x3 / 3x2) so no amount is ever left
+   sitting alone on its own row — an orphan would give one option visual
+   emphasis, which is the one thing this page must not do.
+   ========================================================= */
+.pwyw-amount-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  .pwyw-amount-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+  }
+}
