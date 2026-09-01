@@ -1,4 +1,5 @@
 import { hero, howItWorks, outcome, session } from "@/content/page-content";
+import { ClosingNote } from "@/components/ClosingNote";
 import { HeroVideo } from "@/components/HeroVideo";
 import { PaymentOptions } from "@/components/PaymentOptions";
 import { WallOfFame } from "@/components/WallOfFame";
@@ -172,6 +173,8 @@ export default function PayWhatYouLikePage() {
       <PaymentOptions />
 
       <WallOfFame />
+
+      <ClosingNote />
     </main>
   );
 }

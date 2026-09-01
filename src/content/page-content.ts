@@ -40,10 +40,11 @@ export const paymentOptions: PaymentOption[] = [
 /**
  * The TidyCal booking page people land on after paying.
  *
- * This is recorded here for reference and for any future success page — the
- * live redirect is set on each Stripe Payment Link, not by this app.
+ * The live post-payment redirect is configured on each Stripe Payment Link, not
+ * by this app. This URL is used for the closing note at the foot of the page,
+ * and is here for any future success page.
  */
-export const tidyCalUrl = ""; // TODO: paste TidyCal booking URL
+export const tidyCalUrl = "https://tidycal.com/3qrd8lm/video-kickstart-session-1x6o89p";
 
 /** How amounts are shown. British pounds, no decimals. */
 export const currency = { locale: "en-GB", code: "GBP" } as const;
@@ -228,7 +229,23 @@ export const testimonials: Testimonial[] = [
 ];
 
 /* -------------------------------------------------------------------------
- * 5. ANALYTICS
+ * 5. CLOSING NOTE — the direct calendar link at the foot of the page
+ *
+ * Deliberately quiet: a text link, not a second call to action. Paying first is
+ * still the route we want people to take, which is why the caveat is part of the
+ * sentence rather than small print underneath it.
+ * ------------------------------------------------------------------------- */
+
+export const closingNote = {
+  // Copy here hasn't been through the copywriter.
+  before: "Want to look at times first? You can go straight to ",
+  linkText: "my calendar",
+  after:
+    " — but a booking isn't confirmed until payment has gone through, so you'll still need to pick an amount above.",
+};
+
+/* -------------------------------------------------------------------------
+ * 6. ANALYTICS
  * ------------------------------------------------------------------------- */
 
 export const analytics = {

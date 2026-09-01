@@ -20,6 +20,7 @@ You shouldn't need to open any other file.
 |---|---|
 | The six Stripe Payment Links | `paymentOptions` — paste into each `url` |
 | TidyCal URL | `tidyCalUrl` |
+| Closing note above the calendar link | `closingNote` |
 | Page title / meta description | `meta` |
 | Hero: kicker, headline, subhead, button label, note under button | `hero` |
 | "You already know video would help" — paragraphs, ✗ list, ✓ line | `session` |
@@ -48,8 +49,11 @@ Paste each Payment Link into the matching amount:
 { amount: 50, url: "https://buy.stripe.com/xxxxxxxxxx" },
 ```
 
-Then, **in the Stripe dashboard**, set each Payment Link's after-payment behaviour to
-redirect to your TidyCal URL. That redirect is Stripe's job, not this app's.
+Each Payment Link's after-payment redirect to TidyCal is set **in the Stripe dashboard** —
+that redirect is Stripe's job, not this app's. The `tidyCalUrl` in the content file only
+feeds the closing note at the foot of the page, which links straight to the calendar while
+making clear a booking isn't confirmed until payment clears. Empty that URL and the whole
+closing section disappears.
 
 All six links are live. Any amount left with an empty `url` renders as a visibly disabled
 option that can't navigate anywhere, plus a red warning banner and a console warning in
