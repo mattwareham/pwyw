@@ -130,13 +130,13 @@ export const payment = {
 };
 
 /* -------------------------------------------------------------------------
- * 3. WALL OF FAME — testimonial montage video
+ * 3. TESTIMONIAL MONTAGE — the video near the top of the page
  * ------------------------------------------------------------------------- */
 
 export const montage = {
-  // PLACEHOLDER heading/caption
-  heading: "Wall of Fame",
-  intro: "PLACEHOLDER — a short line introducing the montage and the people below.",
+  // PLACEHOLDER copy — the copywriter's notes don't cover this section yet.
+  heading: "PLACEHOLDER — a short heading for the montage",
+  intro: "PLACEHOLDER — one line introducing the people in the video.",
 
   /**
    * The montage video. Drop an .mp4 into /public/video/ and set this to
@@ -157,7 +157,7 @@ export const montage = {
 };
 
 /* -------------------------------------------------------------------------
- * 4. WALL OF FAME — individual testimonials
+ * 4. WALL OF FAME — individual testimonials, lower down the page
  *
  * Add or remove entries freely; the grid adapts to any number of them.
  * Headshots go in /public/images/testimonials/ and are referenced as
@@ -182,6 +182,12 @@ export interface Testimonial {
   imageWidth?: number;
   imageHeight?: number;
 }
+
+export const wallOfFame = {
+  // PLACEHOLDER copy — the copywriter's notes don't cover this section yet.
+  heading: "Wall of Fame",
+  intro: "PLACEHOLDER — a short line introducing the people below.",
+};
 
 export const testimonials: Testimonial[] = [
   // PLACEHOLDER testimonials — replace all of these with real ones.

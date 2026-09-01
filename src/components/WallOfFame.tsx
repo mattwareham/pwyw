@@ -1,65 +1,10 @@
-import { montage, testimonials } from "@/content/page-content";
+import { testimonials, wallOfFame } from "@/content/page-content";
 import { TestimonialCard } from "@/components/TestimonialCard";
 
-function Montage() {
-  const hasVideo = montage.videoUrl.trim().length > 0;
-
-  const frame = {
-    aspectRatio: "16 / 9",
-    width: "100%",
-    background: "var(--cp-black)",
-    border: "var(--border-w-thicc) solid var(--border-1)",
-    borderRadius: "var(--radius-md)",
-    boxShadow: "var(--shadow-sticker-lg)",
-    overflow: "hidden",
-  } as const;
-
-  if (!hasVideo) {
-    return (
-      <div
-        style={{
-          ...frame,
-          background: "var(--bg-mute)",
-          borderStyle: "dashed",
-          boxShadow: "none",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "var(--space-2)",
-          padding: "var(--space-5)",
-          textAlign: "center",
-          color: "var(--fg-3)",
-        }}
-      >
-        <strong style={{ fontFamily: "var(--font-display)", fontSize: 20, fontWeight: 800 }}>
-          Testimonial montage
-        </strong>
-        <span style={{ fontSize: 15 }}>
-          Video to be added — set <code>montage.videoUrl</code> in{" "}
-          <code>src/content/page-content.ts</code>.
-        </span>
-      </div>
-    );
-  }
-
-  return (
-    /* Native controls, no autoplay, no sound on load. */
-    <video
-      controls
-      preload="metadata"
-      playsInline
-      poster={montage.posterUrl || undefined}
-      aria-label={montage.videoLabel}
-      style={{ ...frame, display: "block" }}
-    >
-      <source src={montage.videoUrl} />
-      Your browser can&rsquo;t play this video.
-    </video>
-  );
-}
-
+/** The individual testimonials. The montage video sits near the top of the page instead. */
 export function WallOfFame() {
+  if (testimonials.length === 0) return null;
+
   return (
     <section
       aria-labelledby="wall-of-fame-heading"
@@ -69,31 +14,27 @@ export function WallOfFame() {
         {/* Text sits in the same 720 column as every other band, so the page has one left edge. */}
         <div style={{ maxWidth: 720, margin: "0 auto var(--space-7)" }}>
           <h2 id="wall-of-fame-heading" style={{ marginBottom: "var(--space-3)" }}>
-            {montage.heading}
+            {wallOfFame.heading}
           </h2>
-          <p style={{ margin: 0, color: "var(--fg-2)", fontSize: 18 }}>{montage.intro}</p>
+          <p style={{ margin: 0, color: "var(--fg-2)", fontSize: 18 }}>{wallOfFame.intro}</p>
         </div>
 
-        <Montage />
-
-        {testimonials.length > 0 && (
-          <ul
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: "var(--space-6)",
-              listStyle: "none",
-              margin: "var(--space-8) 0 0",
-              padding: 0,
-            }}
-          >
-            {testimonials.map((testimonial, index) => (
-              <li key={`${testimonial.name}-${index}`} style={{ display: "grid" }}>
-                <TestimonialCard testimonial={testimonial} />
-              </li>
-            ))}
-          </ul>
-        )}
+        <ul
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "var(--space-6)",
+            listStyle: "none",
+            margin: 0,
+            padding: 0,
+          }}
+        >
+          {testimonials.map((testimonial, index) => (
+            <li key={`${testimonial.name}-${index}`} style={{ display: "grid" }}>
+              <TestimonialCard testimonial={testimonial} />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

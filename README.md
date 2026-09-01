@@ -26,15 +26,18 @@ You shouldn't need to open any other file.
 | "And it doesn't stop when the call ends" — paragraphs, list, closing line | `outcome` |
 | "How it works" — intro and the three steps | `howItWorks` |
 | "About the pay what you like part" — paragraphs, the heading above the amounts, Stripe reassurance | `payment` |
-| Wall of Fame heading and intro | `montage.heading` / `montage.intro` |
+| Montage heading and intro (near the top) | `montage.heading` / `montage.intro` |
+| Wall of Fame heading and intro (lower down) | `wallOfFame` |
 | Montage video | `montage.videoUrl` |
 | Montage poster image | `montage.posterUrl` |
 | Testimonial quotes, names, roles, companies | `testimonials` |
 | Testimonial images and alt text | `testimonials[].image` / `.imageAlt` |
 | Analytics event name and param names | `analytics` |
 
-The page reads as five bands: green hero → three white bands (what it is, what you leave
-with, how it works) → blue pay-what-you-like band containing the six amounts → Wall of Fame.
+The page reads as: green hero → testimonial montage video → three white bands (what it is,
+what you leave with, how it works) → blue pay-what-you-like band containing the six amounts
+→ Wall of Fame testimonial cards. The montage sits near the top deliberately — the proof
+comes before the pitch.
 The hero button is an anchor that scrolls down to the amounts; it does not go to Stripe.
 
 ### Adding the Stripe links

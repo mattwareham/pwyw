@@ -1,6 +1,7 @@
 import { hero, howItWorks, outcome, session } from "@/content/page-content";
 import { PaymentOptions } from "@/components/PaymentOptions";
 import { PAYMENT_ANCHOR } from "@/lib/anchors";
+import { TestimonialMontage } from "@/components/TestimonialMontage";
 import { WallOfFame } from "@/components/WallOfFame";
 
 /* The three white sections read as one continuous band, split by hairlines. */
@@ -50,6 +51,9 @@ export default function PayWhatYouLikePage() {
           </p>
         </div>
       </section>
+
+      {/* Proof, near the top — before the pitch rather than after it */}
+      <TestimonialMontage />
 
       {/* What the session actually is */}
       <section
