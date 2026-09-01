@@ -77,7 +77,9 @@ function AmountButton({ option }: { option: PaymentOption }) {
         style={disabledStyle}
       >
         <span>{label}</span>
-        <span style={{ fontSize: 13, fontWeight: 600, letterSpacing: 0 }}>Not available yet</span>
+        <span style={{ fontSize: 13, fontWeight: 600, letterSpacing: 0 }}>
+          Not available yet
+        </span>
       </button>
     );
   }
@@ -91,7 +93,9 @@ function AmountButton({ option }: { option: PaymentOption }) {
      * immediately; if JS never loads, the link still goes to Stripe and we simply lose
      * the analytics event.
      */
-    const source = safeSource(new URLSearchParams(window.location.search).get(analytics.sourceParam));
+    const source = safeSource(
+      new URLSearchParams(window.location.search).get(analytics.sourceParam),
+    );
 
     trackEvent(analytics.amountSelectedEvent, {
       amount: option.amount,
@@ -99,7 +103,10 @@ function AmountButton({ option }: { option: PaymentOption }) {
     });
 
     try {
-      sessionStorage.setItem(analytics.sessionStorageKey, String(option.amount));
+      sessionStorage.setItem(
+        analytics.sessionStorageKey,
+        String(option.amount),
+      );
     } catch {
       // Private browsing can throw on write — never block the redirect for this.
     }
@@ -157,8 +164,8 @@ function MissingLinksNotice() {
       }}
     >
       Development only: no Stripe Payment Link for{" "}
-      {missing.map((option) => formatAmount(option.amount)).join(", ")}. Add them in{" "}
-      <code>src/content/page-content.ts</code>.
+      {missing.map((option) => formatAmount(option.amount)).join(", ")}. Add
+      them in <code>src/content/page-content.ts</code>.
     </p>
   );
 }
@@ -175,44 +182,49 @@ export function PaymentOptions() {
         borderBottom: "var(--border-w-thicc) solid var(--border-1)",
       }}
     >
-      <div style={{ maxWidth: 720, margin: "0 auto" }}>
-        <h2 id="payment-heading" style={{ marginBottom: "var(--space-5)" }}>
-          {payment.heading}
-        </h2>
+      {/* Same 1040 frame + 720 reading column as every other band. */}
+      <div style={{ maxWidth: 1040, margin: "0 auto" }}>
+        <div style={{ maxWidth: 720 }}>
+          <h2 id="payment-heading" style={{ marginBottom: "var(--space-5)" }}>
+            {payment.heading}
+          </h2>
 
-        {payment.paragraphs.map((paragraph) => (
-          <p key={paragraph} style={{ fontSize: 18, color: "var(--fg-2)" }}>
-            {paragraph}
-          </p>
-        ))}
-
-        <h3 style={{ margin: "var(--space-7) 0 var(--space-5)" }}>{payment.chooseHeading}</h3>
-
-        <MissingLinksNotice />
-
-        <ul className="pwyw-amount-grid">
-          {paymentOptions.map((option) => (
-            <li key={option.amount} style={{ display: "grid" }}>
-              <AmountButton option={option} />
-            </li>
+          {payment.paragraphs.map((paragraph) => (
+            <p key={paragraph} style={{ fontSize: 18, color: "var(--fg-2)" }}>
+              {paragraph}
+            </p>
           ))}
-        </ul>
 
-        <p
-          style={{
-            margin: "var(--space-6) 0 0",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "var(--space-2)",
-            fontSize: 15,
-            fontWeight: 600,
-            color: "var(--fg-2)",
-          }}
-        >
-          <LockIcon />
-          {payment.reassurance}
-        </p>
+          <h3 style={{ margin: "var(--space-7) 0 var(--space-5)" }}>
+            {payment.chooseHeading}
+          </h3>
+
+          <MissingLinksNotice />
+
+          <ul className="pwyw-amount-grid">
+            {paymentOptions.map((option) => (
+              <li key={option.amount} style={{ display: "grid" }}>
+                <AmountButton option={option} />
+              </li>
+            ))}
+          </ul>
+
+          <p
+            style={{
+              margin: "var(--space-6) 0 0",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "var(--space-2)",
+              fontSize: 15,
+              fontWeight: 600,
+              color: "var(--fg-2)",
+            }}
+          >
+            <LockIcon />
+            {payment.reassurance}
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -220,9 +232,29 @@ export function PaymentOptions() {
 
 function LockIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
-      <rect x="4" y="10" width="16" height="11" rx="2" stroke="currentColor" strokeWidth="2.2" />
-      <path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden
+      focusable="false"
+    >
+      <rect
+        x="4"
+        y="10"
+        width="16"
+        height="11"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="2.2"
+      />
+      <path
+        d="M8 10V7a4 4 0 0 1 8 0v3"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }

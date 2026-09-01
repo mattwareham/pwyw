@@ -241,3 +241,23 @@ a:hover { color: var(--cp-blueberry-700); }
   white-space: nowrap;
   border: 0;
 }
+
+/* =========================================================
+   Hero layout.
+   Two columns on desktop — copy left, the square montage video right. Stacks
+   below 900px so the video sits directly under the headline on mobile. Media
+   queries can't live in an inline style, hence the class.
+   ========================================================= */
+.pwyw-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .pwyw-hero-grid {
+    grid-template-columns: minmax(0, 1fr) 380px;
+    gap: var(--space-8);
+  }
+}

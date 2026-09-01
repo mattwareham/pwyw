@@ -11,8 +11,8 @@ export function WallOfFame() {
       style={{ padding: "var(--space-8) var(--space-5)", background: "var(--bg-app-soft)" }}
     >
       <div style={{ maxWidth: 1040, margin: "0 auto" }}>
-        {/* Text sits in the same 720 column as every other band, so the page has one left edge. */}
-        <div style={{ maxWidth: 720, margin: "0 auto var(--space-7)" }}>
+        {/* Same 720 reading column as every other band, pinned to the frame's left edge. */}
+        <div style={{ maxWidth: 720, marginBottom: "var(--space-7)" }}>
           <h2 id="wall-of-fame-heading" style={{ marginBottom: "var(--space-3)" }}>
             {wallOfFame.heading}
           </h2>

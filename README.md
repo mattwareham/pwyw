@@ -26,18 +26,17 @@ You shouldn't need to open any other file.
 | "And it doesn't stop when the call ends" — paragraphs, list, closing line | `outcome` |
 | "How it works" — intro and the three steps | `howItWorks` |
 | "About the pay what you like part" — paragraphs, the heading above the amounts, Stripe reassurance | `payment` |
-| Montage heading and intro (near the top) | `montage.heading` / `montage.intro` |
 | Wall of Fame heading and intro (lower down) | `wallOfFame` |
-| Montage video | `montage.videoUrl` |
-| Montage poster image | `montage.posterUrl` |
+| Montage video (square, sits in the hero) | `montage.videoUrl` |
+| Montage poster image (square) | `montage.posterUrl` |
 | Testimonial quotes, names, roles, companies | `testimonials` |
 | Testimonial images and alt text | `testimonials[].image` / `.imageAlt` |
 | Analytics event name and param names | `analytics` |
 
-The page reads as: green hero → testimonial montage video → three white bands (what it is,
-what you leave with, how it works) → blue pay-what-you-like band containing the six amounts
-→ Wall of Fame testimonial cards. The montage sits near the top deliberately — the proof
-comes before the pitch.
+The page reads as: green hero → three white bands (what it is, what you leave with, how it
+works) → blue pay-what-you-like band containing the six amounts → Wall of Fame testimonial
+cards. The testimonial montage lives **inside the hero** — to the right of the headline on
+desktop, directly below it under 900px.
 The hero button is an anchor that scrolls down to the amounts; it does not go to Stripe.
 
 ### Adding the Stripe links
@@ -61,9 +60,11 @@ A half-configured page can never send someone to a broken link.
   `"/images/testimonials/filename.jpg"`. Set `imageWidth` / `imageHeight` to the file's real
   dimensions if it isn't square. Leave `image` empty and the card shows a neutral initials
   block instead — no stand-in photos of people who don't exist.
-- **Montage video** → drop into `public/video/`, reference as `"/video/filename.mp4"`, or
-  paste a full `https://` URL. While it's empty the page shows a clearly marked placeholder
-  box of the right shape.
+- **Montage video** → **square (1:1)**. Drop into `public/video/`, reference as
+  `"/video/filename.mp4"`, or paste a full `https://` URL. The hero reserves a square frame
+  whether or not a video is set, so nothing reflows when one lands; a non-square file is
+  letterboxed inside it rather than cropped. While it's empty the hero shows a clearly
+  marked square placeholder.
 - The player uses native controls, never autoplays, and is not muted.
 
 ## Running it locally

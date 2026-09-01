@@ -130,29 +130,32 @@ export const payment = {
 };
 
 /* -------------------------------------------------------------------------
- * 3. TESTIMONIAL MONTAGE — the video near the top of the page
+ * 3. TESTIMONIAL MONTAGE — the square video in the hero
+ *
+ * It sits inside the yellow hero band: to the right of the headline on desktop,
+ * directly below it on mobile. It has no heading of its own — the h1 is right
+ * next to it.
  * ------------------------------------------------------------------------- */
 
 export const montage = {
-  // PLACEHOLDER copy — the copywriter's notes don't cover this section yet.
-  heading: "PLACEHOLDER — a short heading for the montage",
-  intro: "PLACEHOLDER — one line introducing the people in the video.",
+  /**
+   * The montage video. **Square (1:1)** — the hero reserves a square frame for it,
+   * so a 16:9 file will be letterboxed inside that square.
+   *
+   * Drop an .mp4 into /public/video/ and set this to "/video/your-file.mp4", or
+   * paste a full https:// URL. While this is empty the hero shows a clearly
+   * marked square placeholder.
+   */
+  videoUrl: "", // TODO: add testimonial montage video (square)
 
   /**
-   * The montage video. Drop an .mp4 into /public/video/ and set this to
-   * "/video/your-file.mp4", or paste a full https:// URL.
-   * While this is empty the page shows a clearly marked placeholder box.
+   * Square still image shown before play. Drop a .jpg into /public/images/ and
+   * set this to "/images/your-poster.jpg". Optional, but stops the player
+   * looking like a black box on load.
    */
-  videoUrl: "", // TODO: add testimonial montage video
+  posterUrl: "", // TODO: add montage poster image (square)
 
-  /**
-   * Still image shown before play. Drop a .jpg into /public/images/ and set
-   * this to "/images/your-poster.jpg". Optional but stops the player looking
-   * blank on load.
-   */
-  posterUrl: "", // TODO: add montage poster image
-
-  /** Accessible label for the video player. */
+  /** Accessible name for the player — it has no visible heading beside it. */
   videoLabel: "Testimonial montage",
 };
 
