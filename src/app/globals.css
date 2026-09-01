@@ -53,6 +53,7 @@
   --fg-muted:     #8A8A8A;
   --fg-on-brand:  var(--cp-white);
   --fg-on-accent: var(--cp-black);
+  --fg-on-inverse: var(--cp-white);
   --fg-link:      var(--cp-blueberry);
   /* Key lime's ink. Key lime itself is unreadable on white, so ticks use this. */
   --fg-positive:  #586C13;

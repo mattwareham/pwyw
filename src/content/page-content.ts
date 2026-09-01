@@ -113,7 +113,7 @@ export const howItWorks = {
   steps: [
     "Choose an amount that feels right.",
     "Pay securely through Stripe.",
-    "Land on my calendar and pick a time. Booked.",
+    "Land on my calendar and pick a time.",
   ],
 };
 
@@ -234,7 +234,19 @@ export const testimonials: Testimonial[] = [
 ];
 
 /* -------------------------------------------------------------------------
- * 5. CLOSING NOTE — the direct calendar link at the foot of the page
+ * 5. LEGAL FOOTER
+ * ------------------------------------------------------------------------- */
+
+export const legal = {
+  copyright: "Copyright \u00a9 2026 Depictar Limited.",
+  registration:
+    "Depictar Limited is a limited company registered in England and Wales, company number 13912768.",
+  registeredOffice:
+    "Registered office: Bank Gallery, High Street, Kenilworth, Warwickshire, England, CV8 1LY.",
+};
+
+/* -------------------------------------------------------------------------
+ * 6. CLOSING NOTE — the direct calendar link at the foot of the page
  *
  * Deliberately quiet: a text link, not a second call to action. Paying first is
  * still the route we want people to take, which is why the caveat is part of the
@@ -250,7 +262,7 @@ export const closingNote = {
 };
 
 /* -------------------------------------------------------------------------
- * 6. ANALYTICS
+ * 7. ANALYTICS
  * ------------------------------------------------------------------------- */
 
 export const analytics = {

@@ -21,6 +21,7 @@ You shouldn't need to open any other file.
 | The six Stripe Payment Links | `paymentOptions` — paste into each `url` |
 | TidyCal URL | `tidyCalUrl` |
 | Closing note above the calendar link | `closingNote` |
+| Company registration details in the footer | `legal` |
 | Page title / meta description | `meta` |
 | Hero: kicker, headline, subhead, button label, note under button | `hero` |
 | "You already know video would help" — paragraphs, ✗ list, ✓ line | `session` |
@@ -35,8 +36,9 @@ You shouldn't need to open any other file.
 | Testimonial images and alt text | `testimonials[].image` / `.imageAlt` |
 | Analytics event name and param names | `analytics` |
 
-The page reads as: green hero → three white bands (what it is, what you leave with, how it
-works) → blue pay-what-you-like band containing the six amounts → Wall of Fame testimonial
+The page reads as: green hero → two white bands (what it is, what you leave with) → blue
+band containing the six amounts and the pay-what-you-like explanation → a white "how it
+works" band → Wall of Fame testimonial
 cards. The testimonial montage lives **inside the hero** — to the right of the headline on
 desktop, directly below it under 900px.
 The hero button is an anchor that scrolls down to the amounts; it does not go to Stripe.
