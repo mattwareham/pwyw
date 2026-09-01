@@ -65,11 +65,26 @@ development only — a half-configured page can never send someone to a broken l
   `"/images/testimonials/filename.jpg"`. Set `imageWidth` / `imageHeight` to the file's real
   dimensions if it isn't square. Leave `image` empty and the card shows a neutral initials
   block instead — no stand-in photos of people who don't exist.
-- **Montage video** → **square (1:1)**. Drop into `public/video/`, reference as
-  `"/video/filename.mp4"`, or paste a full `https://` URL. The hero reserves a square frame
+- **Montage video** → **square (1:1)**, in `public/video/`. The hero reserves a square frame
   whether or not a video is set, so nothing reflows when one lands; a non-square file is
-  letterboxed inside it rather than cropped. While it's empty the hero shows a clearly
-  marked square placeholder.
+  letterboxed rather than cropped. Empty `montage.videoUrl` and the hero shows a clearly
+  marked square placeholder instead.
+
+  **Don't commit a full-quality master.** Keep it in `/media` (gitignored) and serve a web
+  encode. The current one went from 74MB to 19MB with no visible difference:
+
+  ```bash
+  ffmpeg -i "media/YOUR-FILE.mp4" -c:v libx264 -crf 23 -preset slow -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart public/video/testimonials-montage-square.mp4
+  ```
+
+  `-movflags +faststart` matters: it moves the index to the front of the file so playback
+  can start before the whole thing has downloaded.
+
+  To change the poster frame, pick a different timestamp:
+
+  ```bash
+  ffmpeg -ss 1.5 -i public/video/testimonials-montage-square.mp4 -frames:v 1 -q:v 3 public/images/montage-poster.jpg -y
+  ```
 - The player uses native controls, never autoplays, and is not muted.
 
 ## Running it locally

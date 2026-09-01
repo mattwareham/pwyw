@@ -147,20 +147,20 @@ export const payment = {
 export const montage = {
   /**
    * The montage video. **Square (1:1)** — the hero reserves a square frame for it,
-   * so a 16:9 file will be letterboxed inside that square.
+   * so a non-square file is letterboxed inside that square.
    *
-   * Drop an .mp4 into /public/video/ and set this to "/video/your-file.mp4", or
-   * paste a full https:// URL. While this is empty the hero shows a clearly
-   * marked square placeholder.
+   * The served file is a web encode (1080x1080, ~19MB). The full-quality master
+   * lives in /media, which is gitignored — re-encode from there if the montage
+   * changes, rather than serving the master directly. See the README.
    */
-  videoUrl: "", // TODO: add testimonial montage video (square)
+  videoUrl: "/video/testimonials-montage-square.mp4",
 
   /**
-   * Square still image shown before play. Drop a .jpg into /public/images/ and
-   * set this to "/images/your-poster.jpg". Optional, but stops the player
-   * looking like a black box on load.
+   * Square still shown before play, pulled from 1.5s into the montage. Swap the
+   * file, or grab a different moment (see the README) if you'd rather open on
+   * another frame.
    */
-  posterUrl: "", // TODO: add montage poster image (square)
+  posterUrl: "/images/montage-poster.jpg",
 
   /** Accessible name for the player — it has no visible heading beside it. */
   videoLabel: "Testimonial montage",
