@@ -49,39 +49,83 @@ export const tidyCalUrl = ""; // TODO: paste TidyCal booking URL
 export const currency = { locale: "en-GB", code: "GBP" } as const;
 
 /* -------------------------------------------------------------------------
- * 2. PAGE COPY — all placeholder, all safe to rewrite
+ * 2. PAGE COPY
+ *
+ * Ordered the way the page is: hero, then what the session is, then what you
+ * leave with, then how it works, then the pay-what-you-like explanation that
+ * sits directly above the amounts.
  * ------------------------------------------------------------------------- */
 
 export const meta = {
-  // PLACEHOLDER metadata
-  title: "Pay What You Like Session",
-  description: "Choose what you would like to pay, then book your session.",
+  title: "Video Kickstart Session — your first video, made in 60 minutes",
+  description:
+    "Get on a call and record your first video start to finish, before we hang up. Pay what you like.",
 };
 
 export const hero = {
-  // PLACEHOLDER copy
-  eyebrow: "VIDEO KICKSTART SESSION",
-  headline: "Pay what you like",
-  intro: "There's no fixed price for this session. Choose whatever feels right for you.",
-  supporting: "You'll pay securely through Stripe, then choose a time for your session.",
+  kicker: "Video Kickstart Session",
+  headline: "Your first video, made in 60 minutes",
+  subhead:
+    "Stop planning to do video. Get on a call with me and record one, start to finish, before we hang up.",
+  /** Scrolls down to the amounts — it doesn't go to Stripe. */
+  ctaLabel: "Choose your amount",
+  ctaNote: "Pay what you like. These normally go for £149+VAT.",
 };
 
-/** The short "how this works" explanation. Steps render as an ordered list. */
-export const explanation = {
-  // PLACEHOLDER copy
-  heading: "How this works",
-  body: "Pick an amount, pay through Stripe, and you'll be sent straight to my calendar to choose a time. That's the whole thing.",
+/** What the session actually is. */
+export const session = {
+  heading: "You already know video would help",
+  paragraphs: [
+    "You know it's how people find you, work out what you actually do, and decide they trust you. Knowing that hasn't made it happen.",
+    "Maybe you don't know what to say. Maybe you overthink every take. Maybe you posted a few and then quietly stopped. Or maybe \u201cdo some video\u201d has just been sat on the to-do list since spring.",
+    "This session exists to break that in an hour. We get on a call, work out exactly what's been stopping you, build a simple approach to video that fits you and your business, and then we record a real video together before the time's up.",
+  ],
+  /** Rendered with a ✗ marker. */
+  notThis: [
+    "No course to sit through.",
+    "No 47-page strategy you'll never open again.",
+    "No leaving the call with \u201cmake a video\u201d still on your list.",
+  ],
+  /** Rendered with a ✓ marker. */
+  butThis: ["We record it, there and then."],
+};
+
+/** What you walk away with. */
+export const outcome = {
+  heading: "And it doesn't stop when the call ends",
+  paragraphs: [
+    "Afterwards I edit your recording, add subtitles and write the caption to go with it, so your first piece of content is ready to publish rather than sat in a drafts folder.",
+    "You'll also get your own Video Roadmap: a personalised webpage with everything we worked out, your approach, your next moves and exactly what to do from here.",
+  ],
+  listHeading: "You leave with:",
+  items: [
+    "Your first video, edited, subtitled and captioned, ready to post.",
+    "A custom Video Roadmap webpage with your strategy, decisions and next steps.",
+  ],
+  closingLine:
+    "Most consulting calls send you away to go and learn video over the next six weeks. This one just gets it made.",
+};
+
+export const howItWorks = {
+  heading: "How it works",
+  intro: "Three steps, about a minute, no faff.",
   steps: [
-    "Choose an amount that feels right to you.",
+    "Choose an amount that feels right.",
     "Pay securely through Stripe.",
-    "Pick a time that suits you and we're booked in.",
+    "Land on my calendar and pick a time. Booked.",
   ],
 };
 
+/** The pay-what-you-like explanation, and the amounts directly beneath it. */
 export const payment = {
-  // PLACEHOLDER copy
-  heading: "What would you like to pay?",
-  supportingLine: "Seriously. Pick whatever feels right.",
+  heading: "About the \u201cpay what you like\u201d part",
+  paragraphs: [
+    "I set these amounts myself, so whatever you go for it's already a number I'm happy with. That means there's genuinely nothing to apologise for.",
+    "I'm spelling that out because a couple of people have previously paid at the lower end and then felt they had to explain themselves. Please don't. It's pay what you can, not pay what you can and then feel guilty you didn't pay more. And if that guilt's already brewing, it's usually the exact reason you needed to book in the first place.",
+    "Pick your number, turn up properly, and let's make you a video. That's the whole deal.",
+  ],
+  /** Sits directly above the six amounts. */
+  chooseHeading: "Choose your amount and book",
   reassurance: "Secure payment via Stripe",
 };
 

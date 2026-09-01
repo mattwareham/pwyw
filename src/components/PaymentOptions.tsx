@@ -10,6 +10,7 @@ import {
 } from "@/content/page-content";
 import { trackEvent } from "@/lib/analytics";
 import { safeSource } from "@/lib/params";
+import { PAYMENT_ANCHOR } from "@/lib/anchors";
 
 /** A link is usable only if it's actually been filled in with an https URL. */
 function isConfigured(option: PaymentOption): boolean {
@@ -165,6 +166,7 @@ function MissingLinksNotice() {
 export function PaymentOptions() {
   return (
     <section
+      id={PAYMENT_ANCHOR}
       aria-labelledby="payment-heading"
       style={{
         padding: "var(--space-8) var(--space-5)",
@@ -173,13 +175,18 @@ export function PaymentOptions() {
         borderBottom: "var(--border-w-thicc) solid var(--border-1)",
       }}
     >
-      <div style={{ maxWidth: 860, margin: "0 auto" }}>
-        <h2 id="payment-heading" style={{ marginBottom: "var(--space-2)" }}>
+      <div style={{ maxWidth: 720, margin: "0 auto" }}>
+        <h2 id="payment-heading" style={{ marginBottom: "var(--space-5)" }}>
           {payment.heading}
         </h2>
-        <p style={{ marginBottom: "var(--space-6)", color: "var(--fg-2)", fontSize: 18 }}>
-          {payment.supportingLine}
-        </p>
+
+        {payment.paragraphs.map((paragraph) => (
+          <p key={paragraph} style={{ fontSize: 18, color: "var(--fg-2)" }}>
+            {paragraph}
+          </p>
+        ))}
+
+        <h3 style={{ margin: "var(--space-7) 0 var(--space-5)" }}>{payment.chooseHeading}</h3>
 
         <MissingLinksNotice />
 

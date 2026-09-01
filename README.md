@@ -1,8 +1,9 @@
 # Pay What You Like — Video Kickstart Session
 
-A single public landing page. Someone picks what they'd like to pay, goes straight to the
-matching Stripe Payment Link, and Stripe (not this app) redirects them to TidyCal to choose
-a time.
+A single public landing page for the Video Kickstart Session. It sells the outcome — your
+first video, made in an hour — and the pay-what-you-like pricing sits lower down as the
+reason to act. Someone picks an amount, goes straight to the matching Stripe Payment Link,
+and Stripe (not this app) redirects them to TidyCal to choose a time.
 
 ```
 Choose an amount  →  Pay in Stripe  →  Book in TidyCal
@@ -20,14 +21,21 @@ You shouldn't need to open any other file.
 | The six Stripe Payment Links | `paymentOptions` — paste into each `url` |
 | TidyCal URL | `tidyCalUrl` |
 | Page title / meta description | `meta` |
-| Headline, intro, supporting copy | `hero` |
-| "How this works" copy and steps | `explanation` |
-| Payment heading, supporting line, reassurance | `payment` |
+| Hero: kicker, headline, subhead, button label, note under button | `hero` |
+| "You already know video would help" — paragraphs, ✗ list, ✓ line | `session` |
+| "And it doesn't stop when the call ends" — paragraphs, list, closing line | `outcome` |
+| "How it works" — intro and the three steps | `howItWorks` |
+| "About the pay what you like part" — paragraphs, the heading above the amounts, Stripe reassurance | `payment` |
+| Wall of Fame heading and intro | `montage.heading` / `montage.intro` |
 | Montage video | `montage.videoUrl` |
 | Montage poster image | `montage.posterUrl` |
 | Testimonial quotes, names, roles, companies | `testimonials` |
 | Testimonial images and alt text | `testimonials[].image` / `.imageAlt` |
 | Analytics event name and param names | `analytics` |
+
+The page reads as five bands: green hero → three white bands (what it is, what you leave
+with, how it works) → blue pay-what-you-like band containing the six amounts → Wall of Fame.
+The hero button is an anchor that scrolls down to the amounts; it does not go to Stripe.
 
 ### Adding the Stripe links
 

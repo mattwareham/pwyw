@@ -1,19 +1,27 @@
-import { explanation, hero } from "@/content/page-content";
+import { hero, howItWorks, outcome, session } from "@/content/page-content";
 import { PaymentOptions } from "@/components/PaymentOptions";
+import { PAYMENT_ANCHOR } from "@/lib/anchors";
 import { WallOfFame } from "@/components/WallOfFame";
+
+/* The three white sections read as one continuous band, split by hairlines. */
+const whiteBand = {
+  padding: "var(--space-8) var(--space-5)",
+  background: "var(--bg-surface)",
+} as const;
+
+const container = { maxWidth: 720, margin: "0 auto" } as const;
+
+const bodyText = { fontSize: 18, color: "var(--fg-2)" } as const;
 
 export default function PayWhatYouLikePage() {
   return (
     <main>
-      {/* 1. Hero */}
+      {/* Hero — the outcome, not the pricing mechanic */}
       <section
         aria-labelledby="hero-heading"
-        style={{
-          padding: "var(--space-8) var(--space-5) var(--space-7)",
-          background: "var(--bg-app)",
-        }}
+        style={{ padding: "var(--space-8) var(--space-5)", background: "var(--bg-app)" }}
       >
-        <div style={{ maxWidth: 860, margin: "0 auto" }}>
+        <div style={container}>
           {/* eslint-disable-next-line @next/next/no-img-element -- fixed-size brand logo, matches the planner's Logo component */}
           <img
             src="/logo-primary.png"
@@ -23,67 +31,156 @@ export default function PayWhatYouLikePage() {
             style={{ height: 48, width: "auto", display: "block", marginBottom: "var(--space-7)" }}
           />
 
-          <p style={eyebrowStyle}>
-            {hero.eyebrow}
-          </p>
+          <p style={kickerStyle}>{hero.kicker}</p>
 
           <h1 id="hero-heading" style={{ marginBottom: "var(--space-5)" }}>
             {hero.headline}
           </h1>
 
-          <p style={{ fontSize: "clamp(19px, 2.2vw, 24px)", maxWidth: "34ch", color: "var(--fg-1)" }}>
-            {hero.intro}
+          <p style={{ fontSize: "clamp(19px, 2.2vw, 23px)", maxWidth: "38ch", color: "var(--fg-1)" }}>
+            {hero.subhead}
           </p>
-          <p style={{ fontSize: 18, maxWidth: "46ch", color: "var(--fg-2)", margin: 0 }}>
-            {hero.supporting}
+
+          <a href={`#${PAYMENT_ANCHOR}`} className="pwyw-cta" style={{ marginTop: "var(--space-4)" }}>
+            {hero.ctaLabel}
+          </a>
+
+          <p style={{ margin: "var(--space-4) 0 0", fontSize: 15, color: "var(--fg-2)" }}>
+            {hero.ctaNote}
           </p>
         </div>
       </section>
 
-      {/* 2. What pay-what-you-like actually means */}
+      {/* What the session actually is */}
       <section
-        aria-labelledby="explanation-heading"
-        style={{
-          padding: "var(--space-8) var(--space-5)",
-          background: "var(--bg-surface)",
-          borderTop: "var(--border-w-thicc) solid var(--border-1)",
-        }}
+        aria-labelledby="session-heading"
+        style={{ ...whiteBand, borderTop: "var(--border-w-thicc) solid var(--border-1)" }}
       >
-        <div style={{ maxWidth: 860, margin: "0 auto" }}>
-          <h2 id="explanation-heading" style={{ marginBottom: "var(--space-4)" }}>
-            {explanation.heading}
+        <div style={container}>
+          <h2 id="session-heading" style={{ marginBottom: "var(--space-5)" }}>
+            {session.heading}
           </h2>
-          <p style={{ fontSize: 18, maxWidth: "60ch", color: "var(--fg-2)" }}>{explanation.body}</p>
 
-          <ol style={{ margin: "var(--space-6) 0 0", padding: 0, listStyle: "none", display: "grid", gap: "var(--space-4)" }}>
-            {explanation.steps.map((step, index) => (
+          {session.paragraphs.map((paragraph) => (
+            <p key={paragraph} style={bodyText}>
+              {paragraph}
+            </p>
+          ))}
+
+          <ul style={{ ...listReset, marginTop: "var(--space-6)", gap: "var(--space-3)" }}>
+            {session.notThis.map((item) => (
+              <li key={item} style={markerRow}>
+                <span aria-hidden style={{ ...marker, color: "var(--cp-ogre-odor)" }}>
+                  ✗
+                </span>
+                <span className="sr-only">Not: </span>
+                <span style={bodyText}>{item}</span>
+              </li>
+            ))}
+            {session.butThis.map((item) => (
+              <li key={item} style={markerRow}>
+                <span aria-hidden style={{ ...marker, color: "var(--fg-positive)" }}>
+                  ✓
+                </span>
+                <span className="sr-only">Instead: </span>
+                <span style={{ ...bodyText, color: "var(--fg-1)", fontWeight: 700 }}>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* What you walk away with */}
+      <section
+        aria-labelledby="outcome-heading"
+        style={{ ...whiteBand, borderTop: "var(--border-w-hair) solid var(--border-2)" }}
+      >
+        <div style={container}>
+          <h2 id="outcome-heading" style={{ marginBottom: "var(--space-5)" }}>
+            {outcome.heading}
+          </h2>
+
+          {outcome.paragraphs.map((paragraph) => (
+            <p key={paragraph} style={bodyText}>
+              {paragraph}
+            </p>
+          ))}
+
+          <p style={{ ...bodyText, color: "var(--fg-1)", fontWeight: 700, margin: "var(--space-6) 0 var(--space-4)" }}>
+            {outcome.listHeading}
+          </p>
+
+          <ul style={{ ...listReset, gap: "var(--space-3)" }}>
+            {outcome.items.map((item) => (
+              <li key={item} style={markerRow}>
+                <span aria-hidden style={{ ...marker, color: "var(--fg-positive)" }}>
+                  ✓
+                </span>
+                <span style={bodyText}>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p style={{ ...bodyText, marginTop: "var(--space-6)" }}>{outcome.closingLine}</p>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section
+        aria-labelledby="how-heading"
+        style={{ ...whiteBand, borderTop: "var(--border-w-hair) solid var(--border-2)" }}
+      >
+        <div style={container}>
+          <h2 id="how-heading" style={{ marginBottom: "var(--space-3)" }}>
+            {howItWorks.heading}
+          </h2>
+          <p style={bodyText}>{howItWorks.intro}</p>
+
+          <ol style={{ ...listReset, marginTop: "var(--space-6)", gap: "var(--space-4)" }}>
+            {howItWorks.steps.map((step, index) => (
               <li key={step} style={{ display: "flex", alignItems: "flex-start", gap: "var(--space-4)" }}>
                 <span aria-hidden style={stepNumberStyle}>
                   {index + 1}
                 </span>
-                <span style={{ fontSize: 18, paddingTop: 4 }}>{step}</span>
+                <span style={{ ...bodyText, paddingTop: 4 }}>{step}</span>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
-      {/* 3 + 4. Amounts, then the Stripe reassurance line */}
+      {/* The pay-what-you-like explanation, then the six amounts */}
       <PaymentOptions />
 
-      {/* 5. Wall of Fame */}
       <WallOfFame />
     </main>
   );
 }
 
-const eyebrowStyle = {
+const kickerStyle = {
   margin: "0 0 var(--space-4)",
   fontSize: 13,
   fontWeight: 700,
   letterSpacing: "0.14em",
   textTransform: "uppercase",
   color: "var(--fg-2)",
+} as const;
+
+const listReset = {
+  display: "grid",
+  listStyle: "none",
+  margin: 0,
+  padding: 0,
+} as const;
+
+const markerRow = { display: "flex", alignItems: "flex-start", gap: "var(--space-3)" } as const;
+
+const marker = {
+  flexShrink: 0,
+  fontSize: 20,
+  fontWeight: 800,
+  lineHeight: 1.5,
+  width: "1.2em",
 } as const;
 
 const stepNumberStyle = {
