@@ -29,12 +29,12 @@ export interface PaymentOption {
 }
 
 export const paymentOptions: PaymentOption[] = [
-  { amount: 1, url: "" }, // TODO: paste Stripe Payment Link for £1
-  { amount: 25, url: "" }, // TODO: paste Stripe Payment Link for £25
-  { amount: 50, url: "" }, // TODO: paste Stripe Payment Link for £50
-  { amount: 75, url: "" }, // TODO: paste Stripe Payment Link for £75
-  { amount: 100, url: "" }, // TODO: paste Stripe Payment Link for £100
-  { amount: 150, url: "" }, // TODO: paste Stripe Payment Link for £150
+  { amount: 1, url: "https://buy.stripe.com/7sYaEYaLZ3mCclw4LS9AA04" },
+  { amount: 25, url: "https://buy.stripe.com/5kQ3cw2ftcXc3P06U09AA06" },
+  { amount: 50, url: "https://buy.stripe.com/5kQ3cw07l8GWgBM2DK9AA05" },
+  { amount: 75, url: "https://buy.stripe.com/dRmeVeaLZe1g1GS4LS9AA07" },
+  { amount: 100, url: "https://buy.stripe.com/aFa9AU6vJ4qGgBM6U09AA08" },
+  { amount: 150, url: "https://buy.stripe.com/3cIaEYf2f6yO99k3HO9AA09" },
 ];
 
 /**
@@ -116,17 +116,23 @@ export const howItWorks = {
   ],
 };
 
-/** The pay-what-you-like explanation, and the amounts directly beneath it. */
+/**
+ * The blue band. It leads with the amounts — that's the thing people came to do —
+ * and the pay-what-you-like explanation sits underneath them.
+ */
 export const payment = {
-  heading: "About the \u201cpay what you like\u201d part",
-  paragraphs: [
-    "I set these amounts myself, so whatever you go for it's already a number I'm happy with. That means there's genuinely nothing to apologise for.",
-    "I'm spelling that out because a couple of people have previously paid at the lower end and then felt they had to explain themselves. Please don't. It's pay what you can, not pay what you can and then feel guilty you didn't pay more. And if that guilt's already brewing, it's usually the exact reason you needed to book in the first place.",
-    "Pick your number, turn up properly, and let's make you a video. That's the whole deal.",
-  ],
-  /** Sits directly above the six amounts. */
-  chooseHeading: "Choose your amount and book",
+  heading: "Choose your amount and book",
   reassurance: "Secure payment via Stripe",
+
+  /** Sits below the amounts. */
+  explainer: {
+    heading: "About the \u201cpay what you like\u201d part",
+    paragraphs: [
+      "I set these amounts myself, so whatever you go for it's already a number I'm happy with. That means there's genuinely nothing to apologise for.",
+      "I'm spelling that out because a couple of people have previously paid at the lower end and then felt they had to explain themselves. Please don't. It's pay what you can, not pay what you can and then feel guilty you didn't pay more. And if that guilt's already brewing, it's usually the exact reason you needed to book in the first place.",
+      "Pick your number, turn up properly, and let's make you a video. That's the whole deal.",
+    ],
+  },
 };
 
 /* -------------------------------------------------------------------------

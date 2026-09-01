@@ -185,19 +185,10 @@ export function PaymentOptions() {
       {/* Same 1040 frame + 720 reading column as every other band. */}
       <div style={{ maxWidth: 1040, margin: "0 auto" }}>
         <div style={{ maxWidth: 720 }}>
-          <h2 id="payment-heading" style={{ marginBottom: "var(--space-5)" }}>
+          {/* The amounts lead — that's what people came here to do. */}
+          <h2 id="payment-heading" style={{ marginBottom: "var(--space-6)" }}>
             {payment.heading}
           </h2>
-
-          {payment.paragraphs.map((paragraph) => (
-            <p key={paragraph} style={{ fontSize: 18, color: "var(--fg-2)" }}>
-              {paragraph}
-            </p>
-          ))}
-
-          <h3 style={{ margin: "var(--space-7) 0 var(--space-5)" }}>
-            {payment.chooseHeading}
-          </h3>
 
           <MissingLinksNotice />
 
@@ -211,7 +202,7 @@ export function PaymentOptions() {
 
           <p
             style={{
-              margin: "var(--space-6) 0 0",
+              margin: "var(--space-5) 0 0",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -224,6 +215,17 @@ export function PaymentOptions() {
             <LockIcon />
             {payment.reassurance}
           </p>
+
+          {/* The explanation sits underneath, for anyone who wants it. */}
+          <h3 style={{ margin: "var(--space-8) 0 var(--space-4)" }}>
+            {payment.explainer.heading}
+          </h3>
+
+          {payment.explainer.paragraphs.map((paragraph) => (
+            <p key={paragraph} style={{ fontSize: 18, color: "var(--fg-2)" }}>
+              {paragraph}
+            </p>
+          ))}
         </div>
       </div>
     </section>

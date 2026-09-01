@@ -25,7 +25,8 @@ You shouldn't need to open any other file.
 | "You already know video would help" — paragraphs, ✗ list, ✓ line | `session` |
 | "And it doesn't stop when the call ends" — paragraphs, list, closing line | `outcome` |
 | "How it works" — intro and the three steps | `howItWorks` |
-| "About the pay what you like part" — paragraphs, the heading above the amounts, Stripe reassurance | `payment` |
+| "Choose your amount and book" heading + Stripe reassurance | `payment` |
+| "About the pay what you like part" — heading and paragraphs, below the amounts | `payment.explainer` |
 | Wall of Fame heading and intro (lower down) | `wallOfFame` |
 | Montage video (square, sits in the hero) | `montage.videoUrl` |
 | Montage poster image (square) | `montage.posterUrl` |
@@ -50,9 +51,9 @@ Paste each Payment Link into the matching amount:
 Then, **in the Stripe dashboard**, set each Payment Link's after-payment behaviour to
 redirect to your TidyCal URL. That redirect is Stripe's job, not this app's.
 
-Any amount left with an empty `url` renders as a visibly disabled option that can't
-navigate anywhere, plus a red warning banner and a console warning in development only.
-A half-configured page can never send someone to a broken link.
+All six links are live. Any amount left with an empty `url` renders as a visibly disabled
+option that can't navigate anywhere, plus a red warning banner and a console warning in
+development only — a half-configured page can never send someone to a broken link.
 
 ### Adding images and video
 
