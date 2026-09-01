@@ -77,7 +77,7 @@ export const hero = {
 export const session = {
   heading: "You already know video would help",
   paragraphs: [
-    "Maybe you don't know what to say. Maybe you overthink every take. Maybe you posted a few and then quietly stopped. Or maybe \u201cdo some video\u201d has just been sat on the to-do list since spring.",
+    "Maybe you don't know what to say. Maybe you overthink every take. Maybe you posted a few and then quietly stopped. Or maybe \u201cdo some video\u201d has just been sat on the to-do list forever.",
     "This session exists to break that in an hour. We get on a call, work out exactly what's been stopping you, build a simple approach to video that fits you and your business, and then we record a real video together before the time's up.",
   ],
   /** Rendered with a ✗ marker. */
