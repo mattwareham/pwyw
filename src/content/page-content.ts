@@ -77,7 +77,6 @@ export const hero = {
 export const session = {
   heading: "You already know video would help",
   paragraphs: [
-    "You know it's how people find you, work out what you actually do, and decide they trust you. Knowing that hasn't made it happen.",
     "Maybe you don't know what to say. Maybe you overthink every take. Maybe you posted a few and then quietly stopped. Or maybe \u201cdo some video\u201d has just been sat on the to-do list since spring.",
     "This session exists to break that in an hour. We get on a call, work out exactly what's been stopping you, build a simple approach to video that fits you and your business, and then we record a real video together before the time's up.",
   ],
