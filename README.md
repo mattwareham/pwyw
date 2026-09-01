@@ -62,9 +62,13 @@ development only — a half-configured page can never send someone to a broken l
 ### Adding images and video
 
 - **Testimonial headshots** → drop into `public/images/testimonials/`, reference as
-  `"/images/testimonials/filename.jpg"`. Set `imageWidth` / `imageHeight` to the file's real
-  dimensions if it isn't square. Leave `image` empty and the card shows a neutral initials
-  block instead — no stand-in photos of people who don't exist.
+  `"/images/testimonials/filename.webp"`. Square crops work best; they render at 64px in a
+  circle. Leave `image` empty and the card shows a neutral initials block instead. The
+  originals live in `/media/testimonials/` (gitignored).
+
+  Quotes are real, lightly trimmed from session recordings — fillers removed, cuts marked
+  with an ellipsis, nothing paraphrased. Two repairs to spoken stumbles are flagged in
+  comments beside the quotes. Get each person's sign-off before publishing.
 - **Montage video** → **square (1:1)**, in `public/video/`. The hero reserves a square frame
   whether or not a video is set, so nothing reflows when one lands; a non-square file is
   letterboxed rather than cropped. Empty `montage.videoUrl` and the hero shows a clearly

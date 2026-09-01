@@ -169,12 +169,14 @@ export const montage = {
 /* -------------------------------------------------------------------------
  * 4. WALL OF FAME — individual testimonials, lower down the page
  *
- * Add or remove entries freely; the grid adapts to any number of them.
- * Headshots go in /public/images/testimonials/ and are referenced as
- * "/images/testimonials/filename.jpg".
+ * These are real people and real words, lightly trimmed from the session
+ * recordings: fillers and repetitions removed, cuts marked with an ellipsis.
+ * Nothing has been paraphrased. Two small repairs to spoken stumbles are noted
+ * inline — get each person's sign-off on their quote before this goes public.
  *
- * Leave `image` empty and the card shows a neutral initials block instead —
- * no broken images, no stand-in stock photos of people who don't exist.
+ * Add or remove entries freely; the grid adapts to any number of them.
+ * Headshots live in /public/images/testimonials/. Leave `image` empty and the
+ * card shows a neutral initials block instead.
  * ------------------------------------------------------------------------- */
 
 export interface Testimonial {
@@ -199,32 +201,33 @@ export const wallOfFame = {
   intro: "PLACEHOLDER — a short line introducing the people below.",
 };
 
+// TODO: add each person's role and company — only first names are confirmed.
 export const testimonials: Testimonial[] = [
-  // PLACEHOLDER testimonials — replace all of these with real ones.
-  // These are deliberately obvious stand-ins, not invented customers.
   {
-    quote: "PLACEHOLDER TESTIMONIAL — replace this with a real quote from a real person.",
-    name: "Placeholder Name One",
-    company: "Placeholder Company",
-    role: "Placeholder Job Title",
-    image: "",
-    imageAlt: "",
+    // "and" and "a" added to repair a spoken stumble ("is also great first step").
+    quote:
+      "It's been so brilliant to talk through something that's felt like such a blockage for me\u2026 and to actually do it is a great first step.",
+    name: "Jessica",
+    image: "/images/testimonials/jessica.webp",
   },
   {
-    quote: "PLACEHOLDER TESTIMONIAL — replace this with a real quote from a real person.",
-    name: "Placeholder Name Two",
-    company: "Placeholder Company",
-    role: "Placeholder Job Title",
-    image: "",
-    imageAlt: "",
+    quote:
+      "It's not just about the videos\u2026 you've also helped cement in my mind a bit of a plan for the whole content.",
+    name: "Phil",
+    image: "/images/testimonials/phil.webp",
   },
   {
-    quote: "PLACEHOLDER TESTIMONIAL — replace this with a real quote from a real person.",
-    name: "Placeholder Name Three",
-    company: "Placeholder Company",
-    role: "Placeholder Job Title",
-    image: "",
-    imageAlt: "",
+    quote:
+      "I needed a bit of structure \u2014 what the hook was, the middle bit, and the call to action\u2026 You showed me a kind of halfway house that could work more effectively \u2014 something that I can take away and use for future videos.",
+    name: "Vaishali",
+    image: "/images/testimonials/vaishali.webp",
+  },
+  {
+    // "you not trying" corrected to "you're not trying".
+    quote:
+      "I like that you're not trying to put a one-size-fits-all approach on everybody, but actually look at what each individual does and how videos could benefit specifically what they do.",
+    name: "Vanda",
+    image: "/images/testimonials/vanda.webp",
   },
 ];
 

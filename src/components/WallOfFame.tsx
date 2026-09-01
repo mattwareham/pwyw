@@ -19,16 +19,7 @@ export function WallOfFame() {
           <p style={{ margin: 0, color: "var(--fg-2)", fontSize: 18 }}>{wallOfFame.intro}</p>
         </div>
 
-        <ul
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "var(--space-6)",
-            listStyle: "none",
-            margin: 0,
-            padding: 0,
-          }}
-        >
+        <ul className="pwyw-testimonial-grid">
           {testimonials.map((testimonial, index) => (
             <li key={`${testimonial.name}-${index}`} style={{ display: "grid" }}>
               <TestimonialCard testimonial={testimonial} />

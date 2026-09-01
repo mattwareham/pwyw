@@ -261,3 +261,25 @@ a:hover { color: var(--cp-blueberry-700); }
     gap: var(--space-8);
   }
 }
+
+/* =========================================================
+   Testimonial cards.
+   Two up on desktop rather than auto-fit: at this container width auto-fit
+   gives three columns, which leaves the fourth testimonial stranded alone on
+   its own row. Two columns divide four evenly and give the longer quotes room.
+   ========================================================= */
+.pwyw-testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 760px) {
+  .pwyw-testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+}
