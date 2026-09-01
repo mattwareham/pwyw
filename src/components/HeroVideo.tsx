@@ -40,7 +40,7 @@ export function HeroVideo() {
           Testimonial montage
         </strong>
         <span style={{ fontSize: 14 }}>
-          Square video to be added — set <code>montage.videoUrl</code> in{" "}
+          Square video to be added. Set <code>montage.videoUrl</code> in{" "}
           <code>src/content/page-content.ts</code>.
         </span>
       </div>

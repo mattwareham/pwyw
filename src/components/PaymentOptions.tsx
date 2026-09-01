@@ -34,9 +34,11 @@ function formatAmount(amount: number): string {
  */
 const optionStyle: CSSProperties = {
   display: "flex",
+  flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  minHeight: 88,
+  gap: "var(--space-2)",
+  minHeight: 96,
   padding: "var(--space-5) var(--space-4)",
   background: "var(--bg-surface)",
   color: "var(--fg-1)",
@@ -44,19 +46,32 @@ const optionStyle: CSSProperties = {
   borderRadius: "var(--radius-md)",
   boxShadow: "var(--shadow-sticker-md)",
   fontFamily: "var(--font-display)",
-  fontSize: "clamp(28px, 3.6vw, 40px)",
-  fontWeight: 900,
-  letterSpacing: "-0.03em",
   lineHeight: 1,
   textDecoration: "none",
   cursor: "pointer",
   transition: "background var(--dur-fast) var(--easing-out)",
 };
 
+/** The amount itself. Identical on all six, by design. */
+const amountStyle: CSSProperties = {
+  fontSize: "clamp(28px, 3.6vw, 40px)",
+  fontWeight: 900,
+  letterSpacing: "-0.03em",
+  lineHeight: 1,
+};
+
+/** The small action line under the amount, in the page's kicker treatment. */
+const subLabelStyle: CSSProperties = {
+  fontSize: 13,
+  fontWeight: 700,
+  letterSpacing: "0.08em",
+  textTransform: "uppercase",
+  color: "var(--fg-2)",
+  lineHeight: 1,
+};
+
 const disabledStyle: CSSProperties = {
   ...optionStyle,
-  flexDirection: "column",
-  gap: "var(--space-2)",
   background: "var(--bg-mute)",
   color: "var(--fg-muted)",
   borderStyle: "dashed",
@@ -126,7 +141,8 @@ function AmountButton({ option }: { option: PaymentOption }) {
         background: hover ? "var(--cp-key-lime)" : "var(--bg-surface)",
       }}
     >
-      {label}
+      <span style={amountStyle}>{label}</span>
+      <span style={subLabelStyle}>{payment.buttonSubLabel}</span>
     </a>
   );
 }

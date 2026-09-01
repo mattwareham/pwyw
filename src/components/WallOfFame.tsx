@@ -13,10 +13,7 @@ export function WallOfFame() {
       <div style={{ maxWidth: 1040, margin: "0 auto" }}>
         {/* Same 720 reading column as every other band, pinned to the frame's left edge. */}
         <div style={{ maxWidth: 720, marginBottom: "var(--space-7)" }}>
-          <h2 id="wall-of-fame-heading" style={{ marginBottom: "var(--space-3)" }}>
-            {wallOfFame.heading}
-          </h2>
-          <p style={{ margin: 0, color: "var(--fg-2)", fontSize: 18 }}>{wallOfFame.intro}</p>
+          <h2 id="wall-of-fame-heading">{wallOfFame.heading}</h2>
         </div>
 
         <ul className="pwyw-testimonial-grid">

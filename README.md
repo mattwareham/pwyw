@@ -66,9 +66,8 @@ development only — a half-configured page can never send someone to a broken l
   circle. Leave `image` empty and the card shows a neutral initials block instead. The
   originals live in `/media/testimonials/` (gitignored).
 
-  Quotes are real, lightly trimmed from session recordings — fillers removed, cuts marked
-  with an ellipsis, nothing paraphrased. Two repairs to spoken stumbles are flagged in
-  comments beside the quotes. Get each person's sign-off before publishing.
+  Quotes are real, lightly trimmed from session recordings: fillers removed, cuts marked
+  with an ellipsis, nothing paraphrased.
 - **Montage video** → **square (1:1)**, in `public/video/`. The hero reserves a square frame
   whether or not a video is set, so nothing reflows when one lands; a non-square file is
   letterboxed rather than cropped. Empty `montage.videoUrl` and the hero shows a clearly

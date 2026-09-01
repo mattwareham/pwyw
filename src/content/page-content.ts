@@ -58,7 +58,7 @@ export const currency = { locale: "en-GB", code: "GBP" } as const;
  * ------------------------------------------------------------------------- */
 
 export const meta = {
-  title: "Video Kickstart Session — your first video, made in 60 minutes",
+  title: "Video Kickstart Session: your first video, made in 60 minutes",
   description:
     "Get on a call and record your first video start to finish, before we hang up. Pay what you like.",
 };
@@ -123,6 +123,8 @@ export const howItWorks = {
  */
 export const payment = {
   heading: "Choose your amount and book",
+  /** Small line under the amount on every button. */
+  buttonSubLabel: "Book now",
   reassurance: "Secure payment via Stripe",
 
   /** Sits below the amounts. */
@@ -172,7 +174,6 @@ export const montage = {
  * These are real people and real words, lightly trimmed from the session
  * recordings: fillers and repetitions removed, cuts marked with an ellipsis.
  * Nothing has been paraphrased. Two small repairs to spoken stumbles are noted
- * inline — get each person's sign-off on their quote before this goes public.
  *
  * Add or remove entries freely; the grid adapts to any number of them.
  * Headshots live in /public/images/testimonials/. Leave `image` empty and the
@@ -196,37 +197,38 @@ export interface Testimonial {
 }
 
 export const wallOfFame = {
-  // PLACEHOLDER copy — the copywriter's notes don't cover this section yet.
   heading: "Wall of Fame",
-  intro: "PLACEHOLDER — a short line introducing the people below.",
 };
 
-// TODO: add each person's role and company — only first names are confirmed.
 export const testimonials: Testimonial[] = [
   {
     // "and" and "a" added to repair a spoken stumble ("is also great first step").
     quote:
       "It's been so brilliant to talk through something that's felt like such a blockage for me\u2026 and to actually do it is a great first step.",
-    name: "Jessica",
+    name: "Jess",
+    company: "Firebowl",
     image: "/images/testimonials/jessica.webp",
   },
   {
     quote:
       "It's not just about the videos\u2026 you've also helped cement in my mind a bit of a plan for the whole content.",
     name: "Phil",
+    company: "PA Duffin",
     image: "/images/testimonials/phil.webp",
   },
   {
     quote:
-      "I needed a bit of structure \u2014 what the hook was, the middle bit, and the call to action\u2026 You showed me a kind of halfway house that could work more effectively \u2014 something that I can take away and use for future videos.",
+      "I needed a bit of structure: what the hook was, the middle bit, and the call to action\u2026 You showed me a kind of halfway house that could work more effectively, something that I can take away and use for future videos.",
     name: "Vaishali",
+    company: "Creative ID",
     image: "/images/testimonials/vaishali.webp",
   },
   {
     // "you not trying" corrected to "you're not trying".
     quote:
       "I like that you're not trying to put a one-size-fits-all approach on everybody, but actually look at what each individual does and how videos could benefit specifically what they do.",
-    name: "Vanda",
+    name: "Vanda Varga",
+    company: "Vanda Varga Training",
     image: "/images/testimonials/vanda.webp",
   },
 ];
@@ -244,7 +246,7 @@ export const closingNote = {
   before: "Want to look at times first? You can go straight to ",
   linkText: "my calendar",
   after:
-    " — but a booking isn't confirmed until payment has gone through, so you'll still need to pick an amount above.",
+    ", but a booking isn't confirmed until payment has gone through, so you'll still need to pick an amount above.",
 };
 
 /* -------------------------------------------------------------------------
