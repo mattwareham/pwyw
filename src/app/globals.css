@@ -170,6 +170,7 @@ a:hover { color: var(--cp-blueberry-700); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
@@ -282,5 +283,91 @@ a:hover { color: var(--cp-blueberry-700); }
   .pwyw-testimonial-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-6);
+  }
+}
+
+/* =========================================================
+   Hero video play button.
+   The montage opens on a poster frame, which on its own doesn't read as
+   something you're meant to press. This is a big, brand-coloured target over
+   the whole poster, pulsing until it's used, that hands over to the native
+   controls once playback starts.
+   ========================================================= */
+.pwyw-play-button {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  /* Darkens the poster slightly so the button reads against any frame. */
+  box-shadow: inset 0 0 0 100vmax rgba(0, 0, 0, 0.18);
+}
+
+.pwyw-play-mark {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+}
+
+.pwyw-play-circle {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-brand);
+  border: var(--border-w-thicc) solid var(--border-1);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sticker-md);
+  /* Optical centring: a triangle looks left-heavy when centred geometrically. */
+  padding-left: 6px;
+  animation: pwyw-play-breathe 2.2s var(--easing-out) infinite;
+}
+
+.pwyw-play-button:hover .pwyw-play-circle {
+  background: var(--cp-ogre-odor-700);
+}
+
+/* The rings that radiate out from behind the circle. */
+.pwyw-play-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-pill);
+  background: var(--cp-ogre-odor);
+  animation: pwyw-play-ring 2.2s var(--easing-out) infinite;
+}
+
+.pwyw-play-ring-2 {
+  animation-delay: 1.1s;
+}
+
+@keyframes pwyw-play-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  80%,
+  100% {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+
+@keyframes pwyw-play-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
   }
 }
